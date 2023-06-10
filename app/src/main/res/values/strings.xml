@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">OrderingMealsTestTask</string>
+
+<!--    bottom menu-->
+    <string name="main">Main</string>
+    <string name="search">Search</string>
+    <string name="basket">Basket</string>
+    <string name="profile">Profile</string>
+
+<!--    button-->
+    <string name="retry">Retry</string>
+
+
 </resources>

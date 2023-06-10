@@ -1,18 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:layout_height="match_parent">
 
-    <TextView
+    <!--    <com.google.android.material.appbar.MaterialToolbar-->
+    <!--        android:id="@+id/appToolBar"-->
+    <!--        style="@style/ToolbarStyle"-->
+    <!--        android:layout_width="0dp"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:elevation="0dp"-->
+    <!--        app:layout_constraintEnd_toStartOf="@+id/appCompatImageView"-->
+    <!--        app:layout_constraintHorizontal_bias="0.5"-->
+    <!--        app:layout_constraintHorizontal_chainStyle="spread_inside"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent"-->
+    <!--        app:logo="@drawable/toolbar_location"-->
+    <!--        app:subtitle="12 Августа, 2023"-->
+    <!--        app:subtitleTextAppearance="@style/Toolbar.SubtitleText"-->
+    <!--        app:title="Санкт-Петербург"-->
+    <!--        app:titleMarginStart="22dp"-->
+    <!--        app:titleTextAppearance="@style/Toolbar.TitleText" />-->
+
+    <!--    <androidx.appcompat.widget.AppCompatImageView-->
+    <!--        android:id="@+id/appCompatImageView"-->
+    <!--        android:layout_width="44dp"-->
+    <!--        android:layout_height="44dp"-->
+    <!--        android:layout_marginEnd="16dp"-->
+    <!--        android:src="@drawable/user_image_plug"-->
+    <!--        app:layout_constraintBottom_toBottomOf="@+id/appToolBar"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintHorizontal_bias="0.5"-->
+    <!--        app:layout_constraintStart_toEndOf="@+id/appToolBar"-->
+    <!--        app:layout_constraintTop_toTopOf="@+id/appToolBar" />-->
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/appToolBar"
+        style="@style/ToolbarStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:elevation="0dp"
+        app:layout_constraintEnd_toStartOf="@+id/appCompatImageView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:logo="@drawable/toolbar_location"
+        app:subtitle="12 Августа, 2023"
+        app:subtitleTextAppearance="@style/Toolbar.SubtitleText"
+        app:title="Санкт-Петербург"
+        app:titleMarginStart="22dp"
+        app:titleTextAppearance="@style/Toolbar.TitleText" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/appCompatImageView"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        android:layout_marginEnd="16dp"
+        android:src="@drawable/user_image_plug"
+        app:layout_constraintBottom_toBottomOf="@+id/appToolBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/toolbarBarrier"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        app:barrierDirection="bottom"
+        app:constraint_referenced_ids="appCompatImageView, appToolBar" />
+
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/viewFragmentContainer"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:defaultNavHost="true"
+        app:layout_constraintBottom_toTopOf="@+id/viwBottomNavigation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbarBarrier"
+        app:layout_constraintVertical_bias="1.0"
+        app:navGraph="@navigation/bottom_nav_graph" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/viwBottomNavigation"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:itemActiveIndicatorStyle="@color/blue"
+        app:itemIconSize="28dp"
+        app:itemTextAppearanceActive="@style/BottomMenuTitle"
+        app:itemTextAppearanceInactive="@style/BottomMenuTitle"
+        app:labelVisibilityMode="labeled"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:menu="@menu/bottom_nav_menu" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,9 +1,110 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.OrderingMealsTestTask" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    <style name="Base.Theme.OrderingMealsTestTask" parent="Theme.Material3.Light.NoActionBar">
+
+        <item name="colorPrimary">@color/white</item>
+        <item name="colorOnPrimary">@color/black</item>
+        <item name="colorPrimaryContainer">@color/black_alpha_50</item>
+        <item name="colorOnPrimaryContainer">@color/black</item>
+        <item name="colorSecondary">@color/black_alpha_65</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <item name="colorSecondaryContainer">@color/black_alpha_40</item>
+        <item name="colorOnSecondaryContainer">@color/blue</item>
+        <item name="colorTertiary">@color/smoky_white</item>
+<!--        <item name="colorOnTertiary">@color/md_theme_light_onTertiary</item>-->
+<!--        <item name="colorTertiaryContainer">@color/md_theme_light_tertiaryContainer</item>-->
+<!--        <item name="colorOnTertiaryContainer">@color/md_theme_light_onTertiaryContainer</item>-->
+<!--        <item name="colorError">@color/md_theme_light_error</item>-->
+<!--        <item name="colorErrorContainer">@color/md_theme_light_errorContainer</item>-->
+<!--        <item name="colorOnError">@color/md_theme_light_onError</item>-->
+<!--        <item name="colorOnErrorContainer">@color/md_theme_light_onErrorContainer</item>-->
+        <item name="android:colorBackground">@color/white</item>
+        <item name="colorOnBackground">@color/black</item>
+        <item name="colorSurface">@color/white</item>
+        <item name="colorOnSurface">@color/blue</item>
+        <item name="colorSurfaceVariant">@color/black_alpha_50</item>
+        <item name="colorOnSurfaceVariant">@color/gray</item>
+<!--        <item name="colorOutline">@color/md_theme_light_outline</item>-->
+<!--        <item name="colorOnSurfaceInverse">@color/md_theme_light_inverseOnSurface</item>-->
+<!--        <item name="colorSurfaceInverse">@color/md_theme_light_inverseSurface</item>-->
+<!--        <item name="colorPrimaryInverse">@color/md_theme_light_inversePrimary</item>-->
+
+
+        <item name="android:statusBarColor">@color/white</item>
+        <item name="android:windowLightStatusBar">true</item>
+
+        <item name="textAppearanceHeadline6">@style/Headline6</item>
+        <item name="textAppearanceSubtitle2">@style/Subtitle2</item>
+
     </style>
 
-    <style name="Theme.OrderingMealsTestTask" parent="Base.Theme.OrderingMealsTestTask" />
+<!--    <style name="Theme.OrderingMealsTestTask" parent="Base.Theme.OrderingMealsTestTask" />-->
+
+<!--    Typography-->
+    <style name="Headline6" parent="TextAppearance.MaterialComponents.Headline6">
+        <item name="fontFamily">@font/sf_pro_display_regular</item>
+        <item name="lineHeight">25dp</item>
+        <item name="fontWeight">500</item>
+    </style>
+
+    <style name="Subtitle2" parent="TextAppearance.MaterialComponents.Subtitle2">
+        <item name="fontFamily">@font/sf_pro_display_regular</item>
+        <item name="android:textSize">14sp</item>
+        <item name="lineHeight">14.7dp</item>
+        <item name="fontWeight">400</item>
+    </style>
+
+
+<!--    Toolbar-->
+    <style name="ToolbarStyle">
+        <item name="android:background">@color/white</item>
+        <item name="android:theme">@style/ToolbarTheme</item>
+        <item name="titleTextColor">@color/black</item>
+        <item name="subtitleTextColor">@color/black_alpha_40</item>
+        <item name="popupTheme">@style/ThemeOverlay.AppCompat.Light</item>
+    </style>
+
+    <style name="ToolbarTheme" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="toolbarNavigationButtonStyle">@style/ToolbarButtonNavigationStyle</item>
+        <item name="colorControlNormal">@color/black</item>
+    </style>
+
+    <style name="ToolbarButtonNavigationStyle" parent="Widget.AppCompat.Toolbar.Button.Navigation">
+        <item name="tint">@color/black</item>
+    </style>
+
+    <style name="Toolbar.TitleText" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="font">@font/sf_pro_display_regular</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="Toolbar.SubtitleText" parent="TextAppearance.Widget.AppCompat.Toolbar.Subtitle">
+        <item name="font">@font/sf_pro_display_regular</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+<!--    BottomNav-->
+    <style name="BottomMenuTitle" parent="@style/TextAppearance.AppCompat.Caption">
+        <item name="android:textSize">10sp</item>
+        <item name="fontFamily">@font/sf_pro_display_regular</item>
+    </style>
+
+<!--    ProgressBar-->
+    <style name="CircularProgressBar" parent="Widget.Material3.CircularProgressIndicator">
+        <item name="indicatorColor">?attr/colorOnSurfaceVariant</item>
+        <item name="android:indeterminate">true</item>
+    </style>
+
+<!--    ExceptionTextView-->
+    <style name="ExceptionTextView" parent="Widget.MaterialComponents.TextView">
+        <item name="android:gravity">center</item>
+    </style>
+
+<!--    Button-->
+    <style name="RetryButton" parent="Widget.Material3.Button">
+        <item name="android:layout_marginTop">12dp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="backgroundTint">@color/blue</item>
+    </style>
+
 </resources>

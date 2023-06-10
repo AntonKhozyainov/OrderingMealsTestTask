@@ -1,0 +1,8 @@
+package ru.khozyainov.orderingmealstesttask.ui.categorydetail
+
+import ru.khozyainov.orderingmealstesttask.databinding.FragmentCategoryDetailBinding
+import ru.khozyainov.orderingmealstesttask.utils.ViewBindingFragment
+
+class CategoryDetailFragment: ViewBindingFragment<FragmentCategoryDetailBinding>(FragmentCategoryDetailBinding::inflate) {
+
+}
