@@ -6,15 +6,14 @@ import androidx.appcompat.widget.Toolbar
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.navigation.NavigationBarView
 import org.threeten.bp.Instant
 import org.threeten.bp.ZoneId
 import org.threeten.bp.format.DateTimeFormatter
 import ru.khozyainov.orderingmealstesttask.R
+import ru.khozyainov.orderingmealstesttask.utils.setDefaultState
 
 class MainActivity : AppCompatActivity(){
-
-    private val formatter = DateTimeFormatter.ofPattern("d MMMM, yyyy")
-        .withZone(ZoneId.systemDefault())
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,8 +26,7 @@ class MainActivity : AppCompatActivity(){
     private fun setDateInSubtitle(){
         val toolbar: Toolbar = findViewById(R.id.appToolBar)
         setSupportActionBar(toolbar)
-        //supportActionBar?.title = "sdf"
-        supportActionBar?.subtitle = formatter.format(Instant.now())
+        toolbar.setDefaultState(this)
     }
 
     private fun setUpBottomNavigation(){

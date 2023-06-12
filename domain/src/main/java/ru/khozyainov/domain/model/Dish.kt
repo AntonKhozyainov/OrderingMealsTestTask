@@ -7,5 +7,5 @@ data class Dish(
     val weight: Int,
     val imageUrl: String,
     val description: String,
-    val tags: List<Tag>
+    val tags: List<String>
 ): Model()

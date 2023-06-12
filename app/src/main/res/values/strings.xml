@@ -10,5 +10,19 @@
 <!--    button-->
     <string name="retry">Retry</string>
 
+<!--    tag-->
+    <string name="tag_all_name">All menus</string>
+
+<!--    list-->
+    <string name="empty_list">List is empty</string>
+
+<!--    Empty fragments-->
+    <string name="screen_in_development">Screen in development…</string>
+
+<!--    Dish detail-->
+    <string name="add_to_basket">Add to basket</string>
+    <string name="price">%1$d &#8381; </string>
+    <string name="weight"> &#183; %1$dg</string>
+
 
 </resources>

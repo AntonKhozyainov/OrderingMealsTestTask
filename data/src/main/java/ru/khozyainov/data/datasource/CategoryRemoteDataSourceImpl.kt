@@ -1,7 +1,7 @@
 package ru.khozyainov.data.datasource
 
-import ru.khozyainov.data.api.CategoryApi
-import ru.khozyainov.data.model.CategoryRemote
+import ru.khozyainov.data.remote.api.CategoryApi
+import ru.khozyainov.data.remote.model.CategoryRemote
 import javax.inject.Inject
 
 class CategoryRemoteDataSourceImpl @Inject constructor(

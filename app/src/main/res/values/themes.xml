@@ -11,7 +11,7 @@
         <item name="colorSecondaryContainer">@color/black_alpha_40</item>
         <item name="colorOnSecondaryContainer">@color/blue</item>
         <item name="colorTertiary">@color/smoky_white</item>
-<!--        <item name="colorOnTertiary">@color/md_theme_light_onTertiary</item>-->
+        <item name="colorOnTertiary">@color/black_alpha_65</item>
 <!--        <item name="colorTertiaryContainer">@color/md_theme_light_tertiaryContainer</item>-->
 <!--        <item name="colorOnTertiaryContainer">@color/md_theme_light_onTertiaryContainer</item>-->
 <!--        <item name="colorError">@color/md_theme_light_error</item>-->
@@ -34,6 +34,7 @@
         <item name="android:windowLightStatusBar">true</item>
 
         <item name="textAppearanceHeadline6">@style/Headline6</item>
+        <item name="textAppearanceSubtitle1">@style/Subtitle1</item>
         <item name="textAppearanceSubtitle2">@style/Subtitle2</item>
 
     </style>
@@ -47,12 +48,28 @@
         <item name="fontWeight">500</item>
     </style>
 
+    <style name="Subtitle1" parent="TextAppearance.MaterialComponents.Subtitle1">
+        <item name="fontFamily">@font/sf_pro_display_regular</item>
+        <item name="android:textSize">16sp</item>
+        <item name="lineHeight">16.8dp</item>
+        <item name="fontWeight">500</item>
+    </style>
+
     <style name="Subtitle2" parent="TextAppearance.MaterialComponents.Subtitle2">
         <item name="fontFamily">@font/sf_pro_display_regular</item>
         <item name="android:textSize">14sp</item>
         <item name="lineHeight">14.7dp</item>
         <item name="fontWeight">400</item>
     </style>
+
+    <style name="Body2" parent="TextAppearance.MaterialComponents.Body2">
+        <item name="fontFamily">@font/sf_pro_display_regular</item>
+        <item name="android:textSize">14sp</item>
+        <item name="lineHeight">15.4dp</item>
+        <item name="fontWeight">400</item>
+        <item name="android:textColor">?attr/colorOnTertiary</item>
+    </style>
+
 
 
 <!--    Toolbar-->
@@ -101,10 +118,36 @@
     </style>
 
 <!--    Button-->
-    <style name="RetryButton" parent="Widget.Material3.Button">
+    <style name="AppButton" parent="Widget.Material3.Button">
+        <item name="fontFamily">@font/sf_pro_display_regular</item>
+        <item name="android:textSize">16sp</item>
+        <item name="lineHeight">17.6dp</item>
+        <item name="fontWeight">500</item>
         <item name="android:layout_marginTop">12dp</item>
         <item name="android:textColor">@color/white</item>
         <item name="backgroundTint">@color/blue</item>
+        <item name="cornerRadius">8dp</item>
     </style>
+
+<!--    Image-->
+    <style name="roundedImageView" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">14dp</item>
+    </style>
+
+<!--    ImageButton-->
+    <style name="roundedImageButton" parent="">
+        <item name="android:background">@drawable/round_corner</item>
+        <item name="android:padding">15dp</item>
+    </style>
+
+<!--&lt;!&ndash;    Card&ndash;&gt;-->
+<!--    <style name="CornerMaterialCardView" parent="Widget.MaterialComponents.CardView">-->
+<!--        <item name="cornerFamily">rounded</item>-->
+<!--        <item name="cornerSizeTopRight">25dp</item>-->
+<!--        <item name="cornerSizeTopLeft">25dp</item>-->
+<!--        <item name="cornerSizeBottomLeft">25dp</item>-->
+<!--        <item name="cornerSizeBottomRight">25dp</item>-->
+<!--    </style>-->
 
 </resources>

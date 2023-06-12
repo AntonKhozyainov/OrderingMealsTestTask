@@ -2,25 +2,27 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/mainItemMenu"
+        android:id="@+id/categories_nav_graph"
         android:contentDescription="@string/main"
+        android:enabled="true"
         android:icon="@drawable/bottom_menu_item_home"
         android:title="@string/main" />
 
     <item
-        android:id="@+id/searchItemMenu"
+        android:id="@+id/search_nav_graph"
         android:contentDescription="@string/search"
+        android:enabled="true"
         android:icon="@drawable/bottom_menu_item_search"
         android:title="@string/search" />
 
     <item
-        android:id="@+id/basketItemMenu"
+        android:id="@+id/basket_nav_graph"
         android:contentDescription="@string/basket"
         android:icon="@drawable/bottom_menu_item_basket"
         android:title="@string/basket" />
 
     <item
-        android:id="@+id/profileItemMenu"
+        android:id="@+id/profile_nav_graph"
         android:contentDescription="@string/profile"
         android:icon="@drawable/bottom_menu_item_profile"
         android:title="@string/profile" />

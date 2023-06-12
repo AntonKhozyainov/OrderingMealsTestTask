@@ -5,7 +5,6 @@
     android:id="@+id/tagMaterialCard"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:backgroundTint="?attr/colorTertiary"
     android:orientation="vertical"
     app:strokeWidth="0dp">
 

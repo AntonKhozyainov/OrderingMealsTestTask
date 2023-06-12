@@ -8,6 +8,6 @@
     <fragment
         android:id="@+id/basketFragment"
         tools:layout="@layout/fragment_basket"
-        android:name="ru.khozyainov.orderingmealstesttask.ui.BasketFragment"
+        android:name="ru.khozyainov.orderingmealstesttask.ui.basket.BasketFragment"
         android:label="BasketFragment" />
 </navigation>

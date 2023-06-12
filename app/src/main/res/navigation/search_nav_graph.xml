@@ -8,6 +8,6 @@
     <fragment
         android:id="@+id/searchFragment"
         tools:layout="@layout/fragment_search"
-        android:name="ru.khozyainov.orderingmealstesttask.ui.SearchFragment"
+        android:name="ru.khozyainov.orderingmealstesttask.ui.search.SearchFragment"
         android:label="SearchFragment" />
 </navigation>
