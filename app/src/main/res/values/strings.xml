@@ -1,28 +1,31 @@
 <resources>
     <string name="app_name">OrderingMealsTestTask</string>
 
-<!--    bottom menu-->
+    <!--    bottom menu-->
     <string name="main">Main</string>
     <string name="search">Search</string>
     <string name="basket">Basket</string>
     <string name="profile">Profile</string>
 
-<!--    button-->
+    <!--    button-->
     <string name="retry">Retry</string>
 
-<!--    tag-->
-    <string name="tag_all_name">All menus</string>
-
-<!--    list-->
+    <!--    list-->
     <string name="empty_list">List is empty</string>
 
-<!--    Empty fragments-->
+    <!--    Empty fragments-->
     <string name="screen_in_development">Screen in development…</string>
 
-<!--    Dish detail-->
+    <!--    Dish detail-->
     <string name="add_to_basket">Add to basket</string>
-    <string name="price">%1$d &#8381; </string>
+    <string name="price">%1$d &#8381;</string>
     <string name="weight"> &#183; %1$dg</string>
+    <string name="like_icon_button">Like icon button</string>
+    <string name="close_icon_button">Close icon button</string>
 
+    <!--    Basket-->
+    <string name="pay_basket">Pay %1$s &#8381;</string>
+    <string name="increment_dish">Increment dish</string>
+    <string name="decrement_dish">Decrement dish</string>
 
 </resources>

@@ -17,6 +17,5 @@ object ApiModule {
 
     @Provides
     @Singleton
-    fun providesNetworkDishApi(retrofit: Retrofit): DishApi =
-        retrofit.create(DishApi::class.java)
+    fun providesNetworkDishApi(retrofit: Retrofit): DishApi = retrofit.create(DishApi::class.java)
 }

@@ -19,6 +19,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:shapeAppearanceOverlay="@style/roundedImageView"
+            tools:ignore="ImageContrastCheck"
             tools:src="@tools:sample/avatars" />
 
         <com.google.android.material.textview.MaterialTextView
@@ -52,16 +53,45 @@
             android:textColor="@color/black_alpha_40"
             app:layout_constraintStart_toEndOf="@+id/priceBasketDishTextView"
             app:layout_constraintTop_toTopOf="@+id/priceBasketDishTextView"
+            tools:ignore="TextContrastCheck"
             tools:text=" &#183; 560г" />
 
-        <Button
-            android:id="@+id/changeCountDishButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/black_alpha_65"
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/decDishBasketButton"
+            style="@style/roundedImageButtonStart"
+            android:layout_width="33dp"
+            android:layout_height="32dp"
+            android:contentDescription="@string/decrement_dish"
+            android:src="@drawable/basket_dec"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/countDishBasketTextView"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/countDishBasketTextView"
+            style="?attr/textAppearanceSubtitle2"
+            android:layout_width="33dp"
+            android:layout_height="32dp"
+            android:background="?attr/colorTertiaryContainer"
+            android:gravity="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/incDishBasketButton"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="1" />
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/incDishBasketButton"
+            style="@style/roundedImageButtonEnd"
+            android:layout_width="33dp"
+            android:layout_height="32dp"
+            android:contentDescription="@string/increment_dish"
+            android:src="@drawable/basket_inc"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="TouchTargetSizeCheck" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

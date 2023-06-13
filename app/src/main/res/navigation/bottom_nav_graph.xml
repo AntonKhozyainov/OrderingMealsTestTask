@@ -4,9 +4,9 @@
     android:id="@+id/bottom_nav_graph"
     app:startDestination="@+id/categories_nav_graph">
 
-    <include app:graph="@navigation/categories_nav_graph"/>
-    <include app:graph="@navigation/search_nav_graph"/>
-    <include app:graph="@navigation/basket_nav_graph"/>
-    <include app:graph="@navigation/profile_nav_graph"/>
+    <include app:graph="@navigation/categories_nav_graph" />
+    <include app:graph="@navigation/search_nav_graph" />
+    <include app:graph="@navigation/basket_nav_graph" />
+    <include app:graph="@navigation/profile_nav_graph" />
 
 </navigation>

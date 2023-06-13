@@ -1,4 +1,4 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <!-- Base application theme. -->
     <style name="Base.Theme.OrderingMealsTestTask" parent="Theme.Material3.Light.NoActionBar">
 
@@ -12,23 +12,13 @@
         <item name="colorOnSecondaryContainer">@color/blue</item>
         <item name="colorTertiary">@color/smoky_white</item>
         <item name="colorOnTertiary">@color/black_alpha_65</item>
-<!--        <item name="colorTertiaryContainer">@color/md_theme_light_tertiaryContainer</item>-->
-<!--        <item name="colorOnTertiaryContainer">@color/md_theme_light_onTertiaryContainer</item>-->
-<!--        <item name="colorError">@color/md_theme_light_error</item>-->
-<!--        <item name="colorErrorContainer">@color/md_theme_light_errorContainer</item>-->
-<!--        <item name="colorOnError">@color/md_theme_light_onError</item>-->
-<!--        <item name="colorOnErrorContainer">@color/md_theme_light_onErrorContainer</item>-->
+        <item name="colorTertiaryContainer">@color/snow_white</item>
         <item name="android:colorBackground">@color/white</item>
         <item name="colorOnBackground">@color/black</item>
         <item name="colorSurface">@color/white</item>
         <item name="colorOnSurface">@color/blue</item>
         <item name="colorSurfaceVariant">@color/black_alpha_50</item>
         <item name="colorOnSurfaceVariant">@color/gray</item>
-<!--        <item name="colorOutline">@color/md_theme_light_outline</item>-->
-<!--        <item name="colorOnSurfaceInverse">@color/md_theme_light_inverseOnSurface</item>-->
-<!--        <item name="colorSurfaceInverse">@color/md_theme_light_inverseSurface</item>-->
-<!--        <item name="colorPrimaryInverse">@color/md_theme_light_inversePrimary</item>-->
-
 
         <item name="android:statusBarColor">@color/white</item>
         <item name="android:windowLightStatusBar">true</item>
@@ -39,9 +29,7 @@
 
     </style>
 
-<!--    <style name="Theme.OrderingMealsTestTask" parent="Base.Theme.OrderingMealsTestTask" />-->
-
-<!--    Typography-->
+    <!--    Typography-->
     <style name="Headline6" parent="TextAppearance.MaterialComponents.Headline6">
         <item name="fontFamily">@font/sf_pro_display_regular</item>
         <item name="lineHeight">25dp</item>
@@ -70,9 +58,7 @@
         <item name="android:textColor">?attr/colorOnTertiary</item>
     </style>
 
-
-
-<!--    Toolbar-->
+    <!--    Toolbar-->
     <style name="ToolbarStyle">
         <item name="android:background">@color/white</item>
         <item name="android:theme">@style/ToolbarTheme</item>
@@ -100,24 +86,24 @@
         <item name="android:textSize">14sp</item>
     </style>
 
-<!--    BottomNav-->
+    <!--    BottomNav-->
     <style name="BottomMenuTitle" parent="@style/TextAppearance.AppCompat.Caption">
         <item name="android:textSize">10sp</item>
         <item name="fontFamily">@font/sf_pro_display_regular</item>
     </style>
 
-<!--    ProgressBar-->
+    <!--    ProgressBar-->
     <style name="CircularProgressBar" parent="Widget.Material3.CircularProgressIndicator">
         <item name="indicatorColor">?attr/colorOnSurfaceVariant</item>
         <item name="android:indeterminate">true</item>
     </style>
 
-<!--    ExceptionTextView-->
+    <!--    ExceptionTextView-->
     <style name="ExceptionTextView" parent="Widget.MaterialComponents.TextView">
         <item name="android:gravity">center</item>
     </style>
 
-<!--    Button-->
+    <!--    Button-->
     <style name="AppButton" parent="Widget.Material3.Button">
         <item name="fontFamily">@font/sf_pro_display_regular</item>
         <item name="android:textSize">16sp</item>
@@ -129,25 +115,24 @@
         <item name="cornerRadius">8dp</item>
     </style>
 
-<!--    Image-->
+    <!--    Image-->
     <style name="roundedImageView" parent="">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">14dp</item>
     </style>
 
-<!--    ImageButton-->
+    <!--    ImageButton-->
     <style name="roundedImageButton" parent="">
         <item name="android:background">@drawable/round_corner</item>
         <item name="android:padding">15dp</item>
     </style>
 
-<!--&lt;!&ndash;    Card&ndash;&gt;-->
-<!--    <style name="CornerMaterialCardView" parent="Widget.MaterialComponents.CardView">-->
-<!--        <item name="cornerFamily">rounded</item>-->
-<!--        <item name="cornerSizeTopRight">25dp</item>-->
-<!--        <item name="cornerSizeTopLeft">25dp</item>-->
-<!--        <item name="cornerSizeBottomLeft">25dp</item>-->
-<!--        <item name="cornerSizeBottomRight">25dp</item>-->
-<!--    </style>-->
+    <style name="roundedImageButtonStart" parent="">
+        <item name="android:background">@drawable/round_corner_start</item>
+    </style>
+
+    <style name="roundedImageButtonEnd" parent="">
+        <item name="android:background">@drawable/round_corner_end</item>
+    </style>
 
 </resources>

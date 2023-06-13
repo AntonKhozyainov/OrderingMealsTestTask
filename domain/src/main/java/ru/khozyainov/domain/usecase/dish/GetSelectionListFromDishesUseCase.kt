@@ -8,8 +8,7 @@ class GetSelectionListFromDishesUseCase {
         val list = dishes.asSequence().map { dish ->
             dish.tags.map { tagName ->
                 Tag(
-                    name = tagName,
-                    isSelected = false
+                    name = tagName, isSelected = false
                 )
             }
         }.flatten().toSet().sortedBy { tag ->

@@ -9,7 +9,6 @@ import android.os.Bundle
 import android.text.method.ScrollingMovementMethod
 import android.view.View
 import androidx.navigation.fragment.navArgs
-import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.CustomTarget
 import com.bumptech.glide.request.transition.Transition
@@ -17,9 +16,10 @@ import ru.khozyainov.orderingmealstesttask.R
 import ru.khozyainov.orderingmealstesttask.databinding.DialogDishBinding
 import ru.khozyainov.orderingmealstesttask.utils.ViewBindingDialogFragment
 import ru.khozyainov.orderingmealstesttask.utils.appComponent
+import ru.khozyainov.orderingmealstesttask.utils.getCircularProgressDrawable
 import javax.inject.Inject
 
-class DishDetailDialog: ViewBindingDialogFragment<DialogDishBinding>(DialogDishBinding::inflate) {
+class DishDetailDialog : ViewBindingDialogFragment<DialogDishBinding>(DialogDishBinding::inflate) {
 
     @Inject
     lateinit var viewModel: DishDetailViewModel
@@ -37,7 +37,7 @@ class DishDetailDialog: ViewBindingDialogFragment<DialogDishBinding>(DialogDishB
         dialog?.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
 
         val dish = args.dish
-        with(binding){
+        with(binding) {
             titleDishDetailTextView.text = dish.title
             priceDishDetailTextView.text = getString(R.string.price, dish.price)
             weightDishDetailTextView.text = getString(R.string.weight, dish.weight)
@@ -57,21 +57,14 @@ class DishDetailDialog: ViewBindingDialogFragment<DialogDishBinding>(DialogDishB
 
     }
 
-    private fun setImage(){
+    private fun setImage() {
 
-        Glide.with(requireContext())
-            .asBitmap()
-            .load(args.dish.imageUrl)
+        Glide.with(requireContext()).asBitmap().load(args.dish.imageUrl)
             .into(object : CustomTarget<Bitmap>() {
 
                 override fun onLoadStarted(placeholder: Drawable?) {
                     super.onLoadStarted(placeholder)
-                    val circularProgressDrawable =
-                        CircularProgressDrawable(requireContext()).apply {
-                            strokeWidth = 5f
-                            centerRadius = 30f
-                            start()
-                        }
+                    val circularProgressDrawable = requireContext().getCircularProgressDrawable()
                     binding.dishDetailImageView.setImageDrawable(circularProgressDrawable)
                 }
 
@@ -81,8 +74,7 @@ class DishDetailDialog: ViewBindingDialogFragment<DialogDishBinding>(DialogDishB
                 }
 
                 override fun onResourceReady(
-                    resource: Bitmap,
-                    transition: Transition<in Bitmap>?
+                    resource: Bitmap, transition: Transition<in Bitmap>?
                 ) {
                     binding.dishDetailImageView.setImageBitmap(resource)
                 }

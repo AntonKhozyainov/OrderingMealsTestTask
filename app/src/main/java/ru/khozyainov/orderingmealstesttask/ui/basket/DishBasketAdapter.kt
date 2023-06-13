@@ -2,24 +2,27 @@ package ru.khozyainov.orderingmealstesttask.ui.basket
 
 import androidx.recyclerview.widget.DiffUtil
 import com.hannesdorfmann.adapterdelegates4.AsyncListDifferDelegationAdapter
-import ru.khozyainov.domain.model.Category
-import ru.khozyainov.domain.model.DishInBasket
+import ru.khozyainov.orderingmealstesttask.model.DishUi
 
 class DishBasketAdapter(
-    onClickedInc: (dish: DishInBasket) -> Unit,
-    onClickedDec: (dish: DishInBasket) -> Unit
-): AsyncListDifferDelegationAdapter<DishInBasket>(DishInBasketDiffUtilCallback()) {
+    onClickedInc: (dish: DishUi) -> Unit,
+    onClickedDec: (dish: DishUi) -> Unit
+) : AsyncListDifferDelegationAdapter<DishUi>(DishInBasketDiffUtilCallback()) {
 
     init {
-        delegatesManager.addDelegate(DishBasketAdapterDelegate(onClickedInc = onClickedInc, onClickedDec = onClickedDec))
+        delegatesManager.addDelegate(
+            DishBasketAdapterDelegate(
+                onClickedInc = onClickedInc, onClickedDec = onClickedDec
+            )
+        )
     }
 
-    class DishInBasketDiffUtilCallback: DiffUtil.ItemCallback<DishInBasket>(){
-        override fun areItemsTheSame(oldItem: DishInBasket, newItem: DishInBasket): Boolean {
+    class DishInBasketDiffUtilCallback : DiffUtil.ItemCallback<DishUi>() {
+        override fun areItemsTheSame(oldItem: DishUi, newItem: DishUi): Boolean {
             return oldItem.id == newItem.id
         }
 
-        override fun areContentsTheSame(oldItem: DishInBasket, newItem: DishInBasket): Boolean {
+        override fun areContentsTheSame(oldItem: DishUi, newItem: DishUi): Boolean {
             return oldItem == newItem
         }
 

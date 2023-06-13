@@ -6,14 +6,15 @@ import android.view.View
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
-import ru.khozyainov.domain.model.DishInBasket
 import ru.khozyainov.orderingmealstesttask.R
 import ru.khozyainov.orderingmealstesttask.databinding.FragmentBasketBinding
+import ru.khozyainov.orderingmealstesttask.model.DishUi
 import ru.khozyainov.orderingmealstesttask.utils.ItemOffsetDecoration
 import ru.khozyainov.orderingmealstesttask.utils.ViewBindingFragment
 import ru.khozyainov.orderingmealstesttask.utils.appComponent
 import ru.khozyainov.orderingmealstesttask.utils.autoCleared
 import ru.khozyainov.orderingmealstesttask.utils.launchAndCollectLatest
+import java.text.DecimalFormat
 import javax.inject.Inject
 
 class BasketFragment : ViewBindingFragment<FragmentBasketBinding>(FragmentBasketBinding::inflate) {
@@ -38,10 +39,10 @@ class BasketFragment : ViewBindingFragment<FragmentBasketBinding>(FragmentBasket
     private fun initList() {
         dishBasketAdapter = DishBasketAdapter(
             onClickedInc = { dishInBasket ->
-                //todo
+                viewModel.incDishBasket(dish = dishInBasket)
             },
             onClickedDec = { dishInBasket ->
-                //todo
+                viewModel.decDishBasket(dish = dishInBasket)
             },
         )
 
@@ -53,37 +54,47 @@ class BasketFragment : ViewBindingFragment<FragmentBasketBinding>(FragmentBasket
         }
     }
 
-    private fun observeState(){
-        viewModel.uiState.launchAndCollectLatest(viewLifecycleOwner){ state ->
-            when(state){
+    private fun observeState() {
+        viewModel.uiState.launchAndCollectLatest(viewLifecycleOwner) { state ->
+            when (state) {
                 is BasketScreenState.Error -> showError(state.throwable)
                 is BasketScreenState.Loading -> showProgress()
-                is BasketScreenState.Success -> updateDishes(state.dishes)
+                is BasketScreenState.Success -> updateDishes(
+                    dishes = state.dishes, sum = state.basketSum
+                )
             }
         }
     }
 
-    private fun updateDishes(dishes: List<DishInBasket>){
+    private fun updateDishes(dishes: List<DishUi>, sum: Int) {
         dishBasketAdapter.items = dishes
         with(binding) {
             basketRecyclerView.isVisible = true
-            addToBasketButton.isVisible = true
+            payBasketButton.isVisible = true
+            payBasketButton.text = getString(
+                R.string.pay_basket,
+                DecimalFormat("###,###,###").format(sum).replace(",", " ")
+            )
+
+
+
             basketProgressIndicator.isVisible = false
             basketRetryButton.isVisible = false
             basketTextView.isVisible = false
-            if (dishBasketAdapter.items.isEmpty()) {
+            if (dishes.isEmpty()) {
                 basketRecyclerView.isVisible = false
-                addToBasketButton.isVisible = false
+                payBasketButton.isVisible = false
                 basketTextView.isVisible = true
                 basketTextView.text = getString(R.string.empty_list)
             }
         }
     }
 
-    private fun showError(throwable: Throwable){
+
+    private fun showError(throwable: Throwable) {
         with(binding) {
             basketRecyclerView.isVisible = false
-            addToBasketButton.isVisible = false
+            payBasketButton.isVisible = false
             basketProgressIndicator.isVisible = false
             basketRetryButton.isVisible = true
             basketTextView.isVisible = true
@@ -91,11 +102,11 @@ class BasketFragment : ViewBindingFragment<FragmentBasketBinding>(FragmentBasket
         }
     }
 
-    private fun showProgress(){
+    private fun showProgress() {
         with(binding) {
             basketProgressIndicator.isVisible = true
             basketRecyclerView.isVisible = false
-            addToBasketButton.isVisible = false
+            payBasketButton.isVisible = false
             basketRetryButton.isVisible = false
             basketTextView.isVisible = false
         }

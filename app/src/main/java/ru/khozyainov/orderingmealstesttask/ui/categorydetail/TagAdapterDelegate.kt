@@ -13,32 +13,23 @@ class TagAdapterDelegate(
 ) : AbsListItemAdapterDelegate<Tag, Tag, TagAdapterDelegate.TagHolder>() {
 
     override fun isForViewType(
-        item: Tag,
-        items: MutableList<Tag>,
-        position: Int
+        item: Tag, items: MutableList<Tag>, position: Int
     ): Boolean = true
 
-    override fun onCreateViewHolder(parent: ViewGroup): TagHolder =
-        TagHolder(
-            binding = ItemSelectionBinding.inflate(
-                LayoutInflater.from(parent.context),
-                parent,
-                false
-            ),
-            onItemClicked = onItemClicked
-        )
+    override fun onCreateViewHolder(parent: ViewGroup): TagHolder = TagHolder(
+        binding = ItemSelectionBinding.inflate(
+            LayoutInflater.from(parent.context), parent, false
+        ), onItemClicked = onItemClicked
+    )
 
     override fun onBindViewHolder(
-        item: Tag,
-        holder: TagHolder,
-        payloads: MutableList<Any>
+        item: Tag, holder: TagHolder, payloads: MutableList<Any>
     ) {
         holder.bind(tag = item)
     }
 
     class TagHolder(
-        private val binding: ItemSelectionBinding,
-        onItemClicked: (tag: Tag) -> Unit
+        private val binding: ItemSelectionBinding, onItemClicked: (tag: Tag) -> Unit
     ) : RecyclerView.ViewHolder(binding.root) {
 
         private lateinit var currentTag: Tag

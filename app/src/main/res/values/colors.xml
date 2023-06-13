@@ -6,14 +6,11 @@
     <color name="black_alpha_50">#80000000</color>
     <color name="black_alpha_40">#66000000</color>
     <color name="blue">#FF3364E0</color>
-    <color name="gray">#FFA5A9B2</color>            //bottom
-    <color name="smoky_white">#FFF8F7F5</color>     //back dish and buttons
-    <color name="snow_white">#FFEFEEEC</color>      //изменение количества блюд в корзине
-
-
+    <color name="gray">#FFA5A9B2</color>
+    <color name="smoky_white">#FFF8F7F5</color>
+    <color name="snow_white">#FFEFEEEC</color>
     <color name="white_alpha_65">#A6FFFFFF</color>
     <color name="white_alpha_50">#80FFFFFF</color>
     <color name="white_alpha_40">#66FFFFFF</color>
     <color name="turquoise">#A10ECEEF</color>
-
 </resources>

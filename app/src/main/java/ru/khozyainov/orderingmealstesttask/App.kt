@@ -5,7 +5,7 @@ import com.jakewharton.threetenabp.AndroidThreeTen
 import ru.khozyainov.orderingmealstesttask.di.AppComponent
 import ru.khozyainov.orderingmealstesttask.di.DaggerAppComponent
 
-class App: Application() {
+class App : Application() {
 
     private var _appComponent: AppComponent? = null
 
@@ -17,8 +17,6 @@ class App: Application() {
 
         AndroidThreeTen.init(this)
 
-        _appComponent = DaggerAppComponent.builder()
-            .context(this)
-            .build()
+        _appComponent = DaggerAppComponent.builder().context(this).build()
     }
 }

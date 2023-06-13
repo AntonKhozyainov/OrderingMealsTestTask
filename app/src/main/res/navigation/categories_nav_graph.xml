@@ -7,9 +7,9 @@
 
     <fragment
         android:id="@+id/categoriesFragment"
-        tools:layout="@layout/fragment_categories"
         android:name="ru.khozyainov.orderingmealstesttask.ui.categories.CategoriesFragment"
-        android:label="CategoriesFragment" >
+        android:label="CategoriesFragment"
+        tools:layout="@layout/fragment_categories">
         <action
             android:id="@+id/action_categoriesFragment_to_categoryDetailFragment"
             app:destination="@id/categoryDetailFragment" />
@@ -17,9 +17,9 @@
 
     <fragment
         android:id="@+id/categoryDetailFragment"
-        tools:layout="@layout/fragment_category_detail"
         android:name="ru.khozyainov.orderingmealstesttask.ui.categorydetail.CategoryDetailFragment"
-        android:label="CategoryDetailFragment" >
+        android:label="CategoryDetailFragment"
+        tools:layout="@layout/fragment_category_detail">
         <argument
             android:name="categoryName"
             app:argType="string" />
@@ -29,9 +29,9 @@
     </fragment>
     <dialog
         android:id="@+id/dishDetailDialog"
-        tools:layout="@layout/dialog_dish"
         android:name="ru.khozyainov.orderingmealstesttask.ui.dishdetail.DishDetailDialog"
-        android:label="DishDetailDialog" >
+        android:label="DishDetailDialog"
+        tools:layout="@layout/dialog_dish">
         <argument
             android:name="dish"
             app:argType="ru.khozyainov.orderingmealstesttask.model.DishUi" />

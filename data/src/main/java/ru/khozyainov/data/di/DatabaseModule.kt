@@ -14,11 +14,8 @@ object DatabaseModule {
     @Provides
     @Singleton
     fun providesDatabase(context: Context): AppDataBase = Room.databaseBuilder(
-        context,
-        AppDataBase::class.java,
-        AppDataBase.DB_NAME
-    )
-        .build()
+        context, AppDataBase::class.java, AppDataBase.DB_NAME
+    ).build()
 
     @Provides
     fun providesDishDao(db: AppDataBase): DishDao = db.dishDao()

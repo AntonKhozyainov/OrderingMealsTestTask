@@ -1,22 +1,24 @@
 package ru.khozyainov.data.local.mapper
 
 import ru.khozyainov.data.local.entity.DishEntity
-import ru.khozyainov.domain.model.DishInBasket
+import ru.khozyainov.domain.model.Dish
 
-class DishEntityMapper: EntityMapper<DishInBasket, DishEntity> {
+class DishEntityMapper : EntityMapper<Dish, DishEntity> {
 
-    override fun mapToDomain(entity: DishEntity): DishInBasket {
-        return DishInBasket(
+    override fun mapToDomain(entity: DishEntity): Dish {
+        return Dish(
             id = entity.id,
             title = entity.title,
             price = entity.price,
             weight = entity.weight,
             imageUrl = entity.imageUrl,
-            count = entity.count
+            count = entity.count,
+            tags = listOf(),
+            description = ""
         )
     }
 
-    override fun mapToEntity(model: DishInBasket): DishEntity {
+    override fun mapToEntity(model: Dish): DishEntity {
         return DishEntity(
             id = model.id,
             title = model.title,

@@ -14,19 +14,20 @@ import ru.khozyainov.orderingmealstesttask.ui.categorydetail.CategoryDetailFragm
 import ru.khozyainov.orderingmealstesttask.ui.dishdetail.DishDetailDialog
 import javax.inject.Singleton
 
-@Component(modules = [
-    ApiModule::class,
-    NetworkModule::class,
-    CategoryRemoteDataSourceModule::class,
-    CategoryRepositoryModule::class,
-    BasketRepositoryModule::class,
-    DishRemoteDataSourceModule::class,
-    DishLocalDataSourceModule::class,
-    DishRepositoryModule::class,
-    MapperModule::class,
-    UseCaseModule::class,
-    DatabaseModule::class
-])
+@Component(
+    modules = [
+        ApiModule::class,
+        NetworkModule::class,
+        CategoryRemoteDataSourceModule::class,
+        CategoryRepositoryModule::class,
+        BasketRepositoryModule::class,
+        DishRemoteDataSourceModule::class,
+        DishLocalDataSourceModule::class,
+        DishRepositoryModule::class,
+        MapperModule::class,
+        UseCaseModule::class,
+        DatabaseModule::class]
+)
 @Singleton
 interface AppComponent {
 
@@ -36,7 +37,7 @@ interface AppComponent {
     fun inject(basketFragment: BasketFragment)
 
     @Component.Builder
-    interface Builder{
+    interface Builder {
         @BindsInstance
         fun context(context: Context): Builder
 

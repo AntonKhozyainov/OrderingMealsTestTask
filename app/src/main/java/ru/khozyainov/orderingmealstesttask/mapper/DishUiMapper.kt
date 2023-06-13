@@ -1,7 +1,6 @@
 package ru.khozyainov.orderingmealstesttask.mapper
 
 import ru.khozyainov.domain.model.Dish
-import ru.khozyainov.domain.model.DishInBasket
 import ru.khozyainov.orderingmealstesttask.model.DishUi
 
 class DishUiMapper : UiMapper<Dish, DishUi> {
@@ -14,7 +13,8 @@ class DishUiMapper : UiMapper<Dish, DishUi> {
             weight = ui.weight,
             imageUrl = ui.imageUrl,
             description = ui.description,
-            tags = ui.tags
+            tags = ui.tags,
+            count = ui.count
         )
     }
 
@@ -26,18 +26,9 @@ class DishUiMapper : UiMapper<Dish, DishUi> {
             weight = model.weight,
             imageUrl = model.imageUrl,
             description = model.description,
-            tags = model.tags
+            tags = model.tags,
+            count = model.count
         )
     }
 
 }
-
-fun DishUiMapper.mapDishUiToDishInBasket(dish: DishUi): DishInBasket =
-    DishInBasket(
-        id = dish.id,
-        title = dish.title,
-        price = dish.price,
-        weight = dish.weight,
-        imageUrl = dish.imageUrl,
-        count = 1
-    )

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/categoryMaterialCard"
     android:layout_width="match_parent"
-    app:strokeWidth="0dp"
     android:layout_height="148dp"
-    android:background="?attr/colorOnSurfaceVariant">
+    android:background="?attr/colorOnSurfaceVariant"
+    app:strokeWidth="0dp">
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/categoryTitleTextView"

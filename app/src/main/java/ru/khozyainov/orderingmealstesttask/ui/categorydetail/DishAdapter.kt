@@ -6,13 +6,13 @@ import ru.khozyainov.orderingmealstesttask.model.DishUi
 
 class DishAdapter(
     onItemClicked: (dish: DishUi) -> Unit
-): AsyncListDifferDelegationAdapter<DishUi>(DishDiffUtilCallback()) {
+) : AsyncListDifferDelegationAdapter<DishUi>(DishDiffUtilCallback()) {
 
     init {
         delegatesManager.addDelegate(DishAdapterDelegate(onItemClicked = onItemClicked))
     }
 
-    class DishDiffUtilCallback: DiffUtil.ItemCallback<DishUi>(){
+    class DishDiffUtilCallback : DiffUtil.ItemCallback<DishUi>() {
         override fun areItemsTheSame(oldItem: DishUi, newItem: DishUi): Boolean {
             return oldItem.id == newItem.id
         }

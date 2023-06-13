@@ -12,14 +12,15 @@ import javax.inject.Inject
 
 class CategoriesViewModel @Inject constructor(
     private val cetCategoriesUseCase: GetCategoriesUseCase
-): ViewModel() {
+) : ViewModel() {
 
-    private val uiMutableState = MutableStateFlow<CategoriesScreenState>(CategoriesScreenState.Loading)
+    private val uiMutableState =
+        MutableStateFlow<CategoriesScreenState>(CategoriesScreenState.Loading)
     val uiState: StateFlow<CategoriesScreenState> = uiMutableState
 
     private var currentJob: Job? = null
 
-    private val errorHandler = CoroutineExceptionHandler{ _, throwable ->
+    private val errorHandler = CoroutineExceptionHandler { _, throwable ->
         uiMutableState.value = CategoriesScreenState.Error(throwable = throwable)
     }
 
@@ -27,9 +28,10 @@ class CategoriesViewModel @Inject constructor(
         refresh()
     }
 
-    fun refresh(){
+    fun refresh() {
         currentJob = viewModelScope.launch(errorHandler) {
-            uiMutableState.value = CategoriesScreenState.Success(categories = cetCategoriesUseCase())
+            uiMutableState.value =
+                CategoriesScreenState.Success(categories = cetCategoriesUseCase())
         }
     }
 

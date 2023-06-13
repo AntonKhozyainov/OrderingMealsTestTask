@@ -7,22 +7,21 @@ import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.launch
 import ru.khozyainov.domain.usecase.dish.AddDishToBasketUseCase
 import ru.khozyainov.orderingmealstesttask.mapper.DishUiMapper
-import ru.khozyainov.orderingmealstesttask.mapper.mapDishUiToDishInBasket
 import ru.khozyainov.orderingmealstesttask.model.DishUi
 import javax.inject.Inject
 
 class DishDetailViewModel @Inject constructor(
     private val addDishToBasketUseCase: AddDishToBasketUseCase,
     private val dishUiMapper: DishUiMapper
-): ViewModel() {
+) : ViewModel() {
 
-    private val errorHandler = CoroutineExceptionHandler{ _, throwable ->
+    private val errorHandler = CoroutineExceptionHandler { _, throwable ->
         Log.e("addDishToBasketError", throwable.message.toString())
     }
 
-    fun addDishToBasket(dish: DishUi){
+    fun addDishToBasket(dish: DishUi) {
         viewModelScope.launch(errorHandler) {
-            val dishInBasket = dishUiMapper.mapDishUiToDishInBasket(dish = dish)
+            val dishInBasket = dishUiMapper.mapToDomain(ui = dish)
             addDishToBasketUseCase(dishInBasket)
         }
     }

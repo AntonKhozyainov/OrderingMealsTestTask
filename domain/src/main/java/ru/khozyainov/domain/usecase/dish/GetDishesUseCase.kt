@@ -6,7 +6,7 @@ import ru.khozyainov.domain.repository.DishRepository
 import javax.inject.Inject
 
 class GetDishesUseCase @Inject constructor(
-   private val dishRepository: DishRepository
-){
+    private val dishRepository: DishRepository
+) {
     suspend operator fun invoke(tag: Tag? = null): List<Dish> = dishRepository.getDishes(tag = tag)
 }

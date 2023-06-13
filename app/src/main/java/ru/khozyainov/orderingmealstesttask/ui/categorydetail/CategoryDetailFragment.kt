@@ -99,8 +99,7 @@ class CategoryDetailFragment :
                 is CategoryDetailScreenState.Error -> showError(state.throwable)
                 is CategoryDetailScreenState.Loading -> showProgress()
                 is CategoryDetailScreenState.Success -> updateDishes(
-                    dishes = state.dishes,
-                    selection = state.selection
+                    dishes = state.dishes, selection = state.selection
                 )
             }
         }
@@ -142,8 +141,8 @@ class CategoryDetailFragment :
         }
     }
 
-    override fun onPause() {
+    override fun onDestroy() {
         toolbar?.setDefaultState(requireContext())
-        super.onPause()
+        super.onDestroy()
     }
 }

@@ -6,6 +6,7 @@ import javax.inject.Inject
 
 class CategoryRemoteDataSourceImpl @Inject constructor(
     private val categoryApi: CategoryApi
-): CategoryRemoteDataSource {
-    override suspend fun getCategories(): List<CategoryRemote> = categoryApi.getCategories().categories
+) : CategoryRemoteDataSource {
+    override suspend fun getCategories(): List<CategoryRemote> =
+        categoryApi.getCategories().categories
 }

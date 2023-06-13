@@ -1,9 +1,10 @@
 package ru.khozyainov.domain.repository
 
 import kotlinx.coroutines.flow.Flow
-import ru.khozyainov.domain.model.DishInBasket
+import ru.khozyainov.domain.model.Dish
 
 interface BasketRepository {
-    suspend fun addDishToBasket(dish: DishInBasket)
-    fun getDishesInBasket(): Flow<List<DishInBasket>>
+    fun getDishes(): Flow<List<Dish>>
+    suspend fun getDishById(id: Int): Dish?
+    suspend fun deleteDishById(id: Int)
 }

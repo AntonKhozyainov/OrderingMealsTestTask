@@ -15,11 +15,10 @@ import ru.khozyainov.data.local.entity.DishEntityContract.TABLE_NAME
     tableName = TABLE_NAME
 )
 data class DishEntity(
-    @PrimaryKey
-    @ColumnInfo(name = ID) val id: Int,
+    @PrimaryKey @ColumnInfo(name = ID) val id: Int,
     @ColumnInfo(name = TITLE) val title: String,
     @ColumnInfo(name = PRICE) val price: Int,
     @ColumnInfo(name = WEIGHT) val weight: Int,
     @ColumnInfo(name = IMAGE) val imageUrl: String,
     @ColumnInfo(name = COUNT) val count: Int
-): ModelEntity()
+) : ModelEntity()

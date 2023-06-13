@@ -7,4 +7,5 @@ interface DishLocalDataSource {
     suspend fun addDishToBasket(dish: DishEntity)
     suspend fun getDishById(id: Int): DishEntity?
     fun getDishes(): Flow<List<DishEntity>>
+    suspend fun deleteDishById(id: Int)
 }

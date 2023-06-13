@@ -4,16 +4,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
 
 abstract class ViewBindingFragment<T : ViewBinding>(
     private val inflateBinding: (
-        inflater: LayoutInflater,
-        root: ViewGroup?,
-        attachToRoot: Boolean
+        inflater: LayoutInflater, root: ViewGroup?, attachToRoot: Boolean
     ) -> T
 ) : Fragment() {
 
@@ -23,9 +20,7 @@ abstract class ViewBindingFragment<T : ViewBinding>(
         get() = _binding!!
 
     final override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         _binding = inflateBinding.invoke(inflater, container, false)
         return binding.root
@@ -37,35 +32,9 @@ abstract class ViewBindingFragment<T : ViewBinding>(
     }
 }
 
-abstract class ViewBindingActivity<T : ViewBinding>(
-    private val inflateBinding: (
-        inflater: LayoutInflater
-    ) -> T
-) : AppCompatActivity() {
-
-    private var _binding: T? = null
-
-    protected val binding: T
-        get() = _binding!!
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        _binding = inflateBinding.invoke(layoutInflater)
-        setContentView(binding.root)
-    }
-
-    override fun onDestroy() {
-        _binding = null
-        super.onDestroy()
-    }
-}
-
 abstract class ViewBindingDialogFragment<T : ViewBinding>(
     private val inflateBinding: (
-        inflater: LayoutInflater,
-        root: ViewGroup?,
-        attachToRoot: Boolean
+        inflater: LayoutInflater, root: ViewGroup?, attachToRoot: Boolean
     ) -> T
 ) : DialogFragment() {
 
@@ -75,9 +44,7 @@ abstract class ViewBindingDialogFragment<T : ViewBinding>(
         get() = _binding!!
 
     final override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         _binding = inflateBinding.invoke(inflater, container, false)
         return binding.root

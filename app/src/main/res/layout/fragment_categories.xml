@@ -18,13 +18,15 @@
         android:id="@+id/categoriesProgressIndicator"
         style="@style/CircularProgressBar"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:visibility="gone" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/categoriesExceptionTextView"
         style="@style/ExceptionTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:visibility="gone"
         tools:text="Exception! Exception! Exception! Exception! Exception! Exception!" />
 
     <com.google.android.material.button.MaterialButton
@@ -32,6 +34,7 @@
         style="@style/AppButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/retry" />
+        android:text="@string/retry"
+        android:visibility="gone" />
 
 </LinearLayout>

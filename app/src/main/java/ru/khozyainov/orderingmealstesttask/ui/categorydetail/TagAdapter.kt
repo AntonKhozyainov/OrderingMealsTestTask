@@ -6,13 +6,13 @@ import ru.khozyainov.domain.model.Tag
 
 class TagAdapter(
     onItemClicked: (tag: Tag) -> Unit
-): AsyncListDifferDelegationAdapter<Tag>(TagDiffUtilCallback()) {
+) : AsyncListDifferDelegationAdapter<Tag>(TagDiffUtilCallback()) {
 
     init {
         delegatesManager.addDelegate(TagAdapterDelegate(onItemClicked = onItemClicked))
     }
 
-    class TagDiffUtilCallback: DiffUtil.ItemCallback<Tag>(){
+    class TagDiffUtilCallback : DiffUtil.ItemCallback<Tag>() {
         override fun areItemsTheSame(oldItem: Tag, newItem: Tag): Boolean {
             return oldItem.name == newItem.name
         }

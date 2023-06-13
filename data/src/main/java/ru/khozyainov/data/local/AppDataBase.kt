@@ -7,11 +7,9 @@ import ru.khozyainov.data.local.dao.DishDao
 import ru.khozyainov.data.local.entity.DishEntity
 
 @Database(
-    entities = [
-        DishEntity::class
-    ], version = DB_VERSION
+    entities = [DishEntity::class], version = DB_VERSION
 )
-abstract class AppDataBase: RoomDatabase() {
+abstract class AppDataBase : RoomDatabase() {
 
     abstract fun dishDao(): DishDao
 

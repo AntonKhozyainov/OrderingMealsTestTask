@@ -11,4 +11,4 @@ data class CategoryRemote(
     @Json(name = ID) val id: Int,
     @Json(name = TITLE) val title: String? = null,
     @Json(name = IMAGE_URL) val imageUrl: String? = null
-): ModelRemote()
+) : ModelRemote()

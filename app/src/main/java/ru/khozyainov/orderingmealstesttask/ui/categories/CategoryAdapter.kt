@@ -6,13 +6,13 @@ import ru.khozyainov.domain.model.Category
 
 class CategoryAdapter(
     onItemClicked: (category: Category) -> Unit
-): AsyncListDifferDelegationAdapter<Category>(CategoryDiffUtilCallback()) {
+) : AsyncListDifferDelegationAdapter<Category>(CategoryDiffUtilCallback()) {
 
     init {
         delegatesManager.addDelegate(CategoryAdapterDelegate(onItemClicked = onItemClicked))
     }
 
-    class CategoryDiffUtilCallback: DiffUtil.ItemCallback<Category>(){
+    class CategoryDiffUtilCallback : DiffUtil.ItemCallback<Category>() {
         override fun areItemsTheSame(oldItem: Category, newItem: Category): Boolean {
             return oldItem.id == newItem.id
         }

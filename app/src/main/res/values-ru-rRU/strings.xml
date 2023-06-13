@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Заказ еды тестовое задание</string>
+
+    <!--    bottom menu-->
+    <string name="main">Главная</string>
+    <string name="search">Поиск</string>
+    <string name="basket">Корзина</string>
+    <string name="profile">Аккаунт</string>
+
+    <!--    button-->
+    <string name="retry">Повторить</string>
+
+    <!--    list-->
+    <string name="empty_list">Список пуст</string>
+
+    <!--    Empty fragments-->
+    <string name="screen_in_development">Экран в разработке…</string>
+
+    <!--    Dish detail-->
+    <string name="add_to_basket">Добавить в корзину</string>
+    <string name="price">%1$d &#8381;</string>
+    <string name="weight"> &#183; %1$dg</string>
+    <string name="like_icon_button">Кнопка иконка нравится</string>
+    <string name="close_icon_button">Кнопка иконка закрыть</string>
+
+    <!--    Basket-->
+    <string name="pay_basket">Оплатить %1$s &#8381;</string>
+    <string name="increment_dish">Добавить блюдо</string>
+    <string name="decrement_dish">Убавить количество блюд</string>
+
+</resources>

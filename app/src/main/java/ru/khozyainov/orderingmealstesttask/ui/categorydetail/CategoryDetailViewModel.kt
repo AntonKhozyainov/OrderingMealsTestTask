@@ -22,7 +22,7 @@ class CategoryDetailViewModel @Inject constructor(
         MutableStateFlow<CategoryDetailScreenState>(CategoryDetailScreenState.Loading)
     val uiState: StateFlow<CategoryDetailScreenState> = uiMutableState
 
-    private val errorHandler = CoroutineExceptionHandler{ _, throwable ->
+    private val errorHandler = CoroutineExceptionHandler { _, throwable ->
         uiMutableState.value = CategoryDetailScreenState.Error(throwable = throwable)
     }
 
@@ -35,8 +35,7 @@ class CategoryDetailViewModel @Inject constructor(
             val dishes = getDishesUseCase()
             val uiDishes = dishes.map { dishUiMapper.mapToUI(model = it) }
             uiMutableState.value = CategoryDetailScreenState.Success(
-                dishes = uiDishes,
-                selection = getSelectionListFromDishesUseCase(dishes = dishes)
+                dishes = uiDishes, selection = getSelectionListFromDishesUseCase(dishes = dishes)
             )
         }
     }

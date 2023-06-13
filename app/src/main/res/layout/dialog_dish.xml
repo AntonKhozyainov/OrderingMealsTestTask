@@ -2,15 +2,15 @@
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@drawable/round_corner"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    android:background="@drawable/round_corner"
     app:strokeWidth="0dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_margin="16dp"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp">
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/dishDetailImageView"
@@ -21,6 +21,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:shapeAppearanceOverlay="@style/roundedImageView"
+            tools:ignore="ImageContrastCheck"
             tools:src="@tools:sample/avatars" />
 
         <androidx.appcompat.widget.AppCompatImageButton
@@ -29,9 +30,11 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_margin="8dp"
+            android:contentDescription="@string/close_icon_button"
             android:src="@drawable/dish_detail_close"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="TouchTargetSizeCheck,RedundantDescriptionCheck,ImageContrastCheck" />
 
         <androidx.appcompat.widget.AppCompatImageButton
             android:id="@+id/likeDishDetailImageButton"
@@ -39,9 +42,11 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_margin="8dp"
+            android:contentDescription="@string/like_icon_button"
             android:src="@drawable/dish_detail_like"
             app:layout_constraintEnd_toStartOf="@+id/closeDishDetailImageButton"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="TouchTargetSizeCheck,RedundantDescriptionCheck" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/titleDishDetailTextView"
@@ -73,6 +78,7 @@
             android:textColor="@color/black_alpha_40"
             app:layout_constraintStart_toEndOf="@+id/priceDishDetailTextView"
             app:layout_constraintTop_toBottomOf="@+id/titleDishDetailTextView"
+            tools:ignore="TextContrastCheck"
             tools:text=" &#183; 560г" />
 
         <com.google.android.material.textview.MaterialTextView

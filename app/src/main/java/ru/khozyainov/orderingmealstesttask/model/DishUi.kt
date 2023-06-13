@@ -11,5 +11,6 @@ data class DishUi(
     val weight: Int,
     val imageUrl: String,
     val description: String,
-    val tags: List<String>
-): Parcelable, ModelUI()
+    val tags: List<String>,
+    val count: Int
+) : Parcelable, ModelUI()

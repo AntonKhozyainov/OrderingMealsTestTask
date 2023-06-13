@@ -19,21 +19,15 @@ object NetworkModule {
     fun providesOkHttpClient(): OkHttpClient = OkHttpClient.Builder()
         //TAG: okhttp.OkHttpClient
         .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
-        .followRedirects(true)
-        .build()
+        .followRedirects(true).build()
 
     @Provides
     @Singleton
-    fun providesRetrofit(okhttpClient: OkHttpClient): Retrofit = Retrofit.Builder()
-        .baseUrl(BASE_URL)
-        .addConverterFactory(
-            MoshiConverterFactory.create(
-                Moshi.Builder()
-                    //.add(CategoriesAdapterJson())
-                    .build()
-            )
-        )
-        .client(okhttpClient)
-        .build()
+    fun providesRetrofit(okhttpClient: OkHttpClient): Retrofit =
+        Retrofit.Builder().baseUrl(BASE_URL).addConverterFactory(
+                MoshiConverterFactory.create(
+                    Moshi.Builder().build()
+                )
+            ).client(okhttpClient).build()
 
 }

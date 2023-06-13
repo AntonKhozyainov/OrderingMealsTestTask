@@ -6,6 +6,6 @@ import javax.inject.Inject
 
 class DishRemoteDataSourceImpl @Inject constructor(
     private val dishApi: DishApi
-): DishRemoteDataSource {
+) : DishRemoteDataSource {
     override suspend fun getDishes(): List<DishRemote> = dishApi.getDishes().dishes
 }

@@ -11,21 +11,22 @@
         android:id="@+id/basketRecyclerView"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/addToBasketButton"
+        app:layout_constraintBottom_toTopOf="@+id/payBasketButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:listitem="@layout/item_dish_basket" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/addToBasketButton"
+        android:id="@+id/payBasketButton"
         style="@style/AppButton"
         android:layout_width="0dp"
         android:layout_height="48dp"
-        android:text="@string/add_to_basket"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="VisualLintButtonSize"
+        tools:text="Оплатить 2 004 ₽" />
 
     <com.google.android.material.progressindicator.CircularProgressIndicator
         android:id="@+id/basketProgressIndicator"

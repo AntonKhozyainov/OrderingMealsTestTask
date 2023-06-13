@@ -6,14 +6,10 @@ import androidx.appcompat.widget.Toolbar
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.android.material.navigation.NavigationBarView
-import org.threeten.bp.Instant
-import org.threeten.bp.ZoneId
-import org.threeten.bp.format.DateTimeFormatter
 import ru.khozyainov.orderingmealstesttask.R
 import ru.khozyainov.orderingmealstesttask.utils.setDefaultState
 
-class MainActivity : AppCompatActivity(){
+class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,13 +19,13 @@ class MainActivity : AppCompatActivity(){
         setUpBottomNavigation()
     }
 
-    private fun setDateInSubtitle(){
+    private fun setDateInSubtitle() {
         val toolbar: Toolbar = findViewById(R.id.appToolBar)
         setSupportActionBar(toolbar)
         toolbar.setDefaultState(this)
     }
 
-    private fun setUpBottomNavigation(){
+    private fun setUpBottomNavigation() {
         val navHostFragment = supportFragmentManager.findFragmentById(
             R.id.viewFragmentContainer
         ) as NavHostFragment

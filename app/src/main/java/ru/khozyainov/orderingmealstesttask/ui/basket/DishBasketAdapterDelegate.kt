@@ -5,83 +5,71 @@ import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.CustomTarget
 import com.bumptech.glide.request.transition.Transition
 import com.hannesdorfmann.adapterdelegates4.AbsListItemAdapterDelegate
-import ru.khozyainov.domain.model.DishInBasket
 import ru.khozyainov.orderingmealstesttask.R
 import ru.khozyainov.orderingmealstesttask.databinding.ItemDishBasketBinding
+import ru.khozyainov.orderingmealstesttask.model.DishUi
+import ru.khozyainov.orderingmealstesttask.utils.getCircularProgressDrawable
 
 class DishBasketAdapterDelegate(
-    private val onClickedInc: (dish: DishInBasket) -> Unit,
-    private val onClickedDec: (dish: DishInBasket) -> Unit
-) : AbsListItemAdapterDelegate<DishInBasket, DishInBasket, DishBasketAdapterDelegate.DishInBasketHolder>() {
+    private val onClickedInc: (dish: DishUi) -> Unit,
+    private val onClickedDec: (dish: DishUi) -> Unit
+) : AbsListItemAdapterDelegate<DishUi, DishUi, DishBasketAdapterDelegate.DishInBasketHolder>() {
 
     override fun isForViewType(
-        item: DishInBasket,
-        items: MutableList<DishInBasket>,
-        position: Int
+        item: DishUi, items: MutableList<DishUi>, position: Int
     ): Boolean = true
 
-    override fun onCreateViewHolder(parent: ViewGroup): DishInBasketHolder =
-        DishInBasketHolder(
-            binding = ItemDishBasketBinding.inflate(
-                LayoutInflater.from(parent.context),
-                parent,
-                false
-            ),
-            onClickedInc = onClickedInc,
-            onClickedDec = onClickedDec
-        )
+    override fun onCreateViewHolder(parent: ViewGroup): DishInBasketHolder = DishInBasketHolder(
+        binding = ItemDishBasketBinding.inflate(
+            LayoutInflater.from(parent.context), parent, false
+        ), onClickedInc = onClickedInc, onClickedDec = onClickedDec
+    )
 
     override fun onBindViewHolder(
-        item: DishInBasket,
-        holder: DishInBasketHolder,
-        payloads: MutableList<Any>
+        item: DishUi, holder: DishInBasketHolder, payloads: MutableList<Any>
     ) {
-        holder.bind(dishInBasket = item)
+        holder.bind(dish = item)
     }
 
     class DishInBasketHolder(
         private val binding: ItemDishBasketBinding,
-        onClickedInc: (dish: DishInBasket) -> Unit,
-        onClickedDec: (dish: DishInBasket) -> Unit
+        onClickedInc: (dish: DishUi) -> Unit,
+        onClickedDec: (dish: DishUi) -> Unit
     ) : RecyclerView.ViewHolder(binding.root) {
 
-        private lateinit var currentDishInBasket: DishInBasket
+        private lateinit var currentDishInBasket: DishUi
 
         init {
-            binding.changeCountDishButton.setOnClickListener {
+            binding.incDishBasketButton.setOnClickListener {
+                onClickedInc(currentDishInBasket)
+            }
+
+            binding.decDishBasketButton.setOnClickListener {
                 onClickedDec(currentDishInBasket)
             }
         }
 
-        fun bind(dishInBasket: DishInBasket) {
+        fun bind(dish: DishUi) {
 
-            currentDishInBasket = dishInBasket
+            currentDishInBasket = dish
 
+            with(binding) {
+                titleBasketDishTextView.text = dish.title
+                priceBasketDishTextView.text = itemView.context.getString(R.string.price, dish.price)
+                weightBasketDishTextView.text = itemView.context.getString(R.string.weight, dish.weight)
+                countDishBasketTextView.text = dish.count.toString()
 
-            with(binding){
-                titleBasketDishTextView.text = dishInBasket.title
-
-                priceBasketDishTextView.text = itemView.context.getString(R.string.price, dishInBasket.price)
-                weightBasketDishTextView.text = itemView.context.getString(R.string.weight, dishInBasket.weight)
-
-                Glide.with(itemView)
-                    .asBitmap()
-                    .load(dishInBasket.imageUrl)
+                Glide.with(itemView).asBitmap().load(dish.imageUrl)
                     .into(object : CustomTarget<Bitmap>() {
 
                         override fun onLoadStarted(placeholder: Drawable?) {
                             super.onLoadStarted(placeholder)
                             val circularProgressDrawable =
-                                CircularProgressDrawable(itemView.context).apply {
-                                    strokeWidth = 5f
-                                    centerRadius = 30f
-                                    start()
-                                }
+                                itemView.context.getCircularProgressDrawable()
                             basketDishImageView.setImageDrawable(circularProgressDrawable)
                         }
 
@@ -91,8 +79,7 @@ class DishBasketAdapterDelegate(
                         }
 
                         override fun onResourceReady(
-                            resource: Bitmap,
-                            transition: Transition<in Bitmap>?
+                            resource: Bitmap, transition: Transition<in Bitmap>?
                         ) {
                             basketDishImageView.setImageBitmap(resource)
                         }

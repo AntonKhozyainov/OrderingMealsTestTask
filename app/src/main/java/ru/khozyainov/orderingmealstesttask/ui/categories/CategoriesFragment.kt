@@ -17,7 +17,8 @@ import ru.khozyainov.orderingmealstesttask.utils.autoCleared
 import ru.khozyainov.orderingmealstesttask.utils.launchAndCollectLatest
 import javax.inject.Inject
 
-class CategoriesFragment: ViewBindingFragment<FragmentCategoriesBinding>(FragmentCategoriesBinding::inflate) {
+class CategoriesFragment :
+    ViewBindingFragment<FragmentCategoriesBinding>(FragmentCategoriesBinding::inflate) {
 
     @Inject
     lateinit var viewModel: CategoriesViewModel
@@ -40,14 +41,16 @@ class CategoriesFragment: ViewBindingFragment<FragmentCategoriesBinding>(Fragmen
         }
     }
 
-    private fun initList(){
-        categoryAdapter = CategoryAdapter{ category ->
+    private fun initList() {
+        categoryAdapter = CategoryAdapter { category ->
             findNavController().navigate(
-                CategoriesFragmentDirections.actionCategoriesFragmentToCategoryDetailFragment(categoryName = category.title)
+                CategoriesFragmentDirections.actionCategoriesFragmentToCategoryDetailFragment(
+                    categoryName = category.title
+                )
             )
         }
 
-        with(binding.categoriesRecyclerView){
+        with(binding.categoriesRecyclerView) {
             adapter = categoryAdapter
             layoutManager = LinearLayoutManager(requireContext())
             addItemDecoration(ItemOffsetDecoration(context = requireContext(), dp = 4))
@@ -55,9 +58,9 @@ class CategoriesFragment: ViewBindingFragment<FragmentCategoriesBinding>(Fragmen
         }
     }
 
-    private fun observeState(){
-        viewModel.uiState.launchAndCollectLatest(viewLifecycleOwner){ state ->
-            when(state){
+    private fun observeState() {
+        viewModel.uiState.launchAndCollectLatest(viewLifecycleOwner) { state ->
+            when (state) {
                 is CategoriesScreenState.Error -> showError(state.throwable)
                 is CategoriesScreenState.Loading -> showProgress()
                 is CategoriesScreenState.Success -> updateCategories(state.categories)
@@ -65,7 +68,7 @@ class CategoriesFragment: ViewBindingFragment<FragmentCategoriesBinding>(Fragmen
         }
     }
 
-    private fun updateCategories(categories: List<Category>){
+    private fun updateCategories(categories: List<Category>) {
         categoryAdapter.items = categories
         with(binding) {
             categoriesRecyclerView.isVisible = true
@@ -75,7 +78,7 @@ class CategoriesFragment: ViewBindingFragment<FragmentCategoriesBinding>(Fragmen
         }
     }
 
-    private fun showError(throwable: Throwable){
+    private fun showError(throwable: Throwable) {
         with(binding) {
             categoriesProgressIndicator.isVisible = false
             categoriesRecyclerView.isVisible = false
@@ -85,7 +88,7 @@ class CategoriesFragment: ViewBindingFragment<FragmentCategoriesBinding>(Fragmen
         }
     }
 
-    private fun showProgress(){
+    private fun showProgress() {
         with(binding) {
             categoriesProgressIndicator.isVisible = true
             categoriesRecyclerView.isVisible = false
